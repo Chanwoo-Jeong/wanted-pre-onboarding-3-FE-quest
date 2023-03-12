@@ -39,7 +39,7 @@
 - Router v6 Outlet 을 이용해 페이지 전환시 전체 Layout 재랜더링이 아닌 내부 Page만 재랜더링할 수 있다.
 - Jwt , refresh_Token , access_Token , LocalStorage에 대한 개념을 이해했다. <br/>
 - page별 접근가능 권한을 Nav바 Auth를 통해 저장했다. <br />이에 따라 Nav바 확장성과 Auth를 통해 로그인이 필요한 페이지의 접근을 제어할 수 있게 되었다.
-- 
+
   ```javascript
     const NavPart = [
     {
@@ -67,9 +67,9 @@
 - Promise async , await 를 통해 로그인 정보를 비동기적으로 불러올 수 있다.
   ```javascript
     export const loginWithToken = async (
-  args: LoginRequest
+       args: LoginRequest
     ): Promise<LoginResultWithToken> => {
-        APi 이용할때
+        
         const loginRes = await axios
         .post(`${BASE_URL}/auth/login`, {
             username: args.username,
