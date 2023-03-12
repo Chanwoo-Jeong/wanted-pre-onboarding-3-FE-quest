@@ -10,7 +10,7 @@ import LocalLogin from "./routes/LocalSLogin";
 function Router() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Reset />
         <Routes>
           <Route path="/" element={<Home />}>

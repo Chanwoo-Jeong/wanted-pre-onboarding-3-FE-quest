@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import LoginOptions from "../Component/LoginOptions";
 import { useSetRecoilState } from "recoil";
 import { isLogined } from "../Recoil/atoms";
+import { getAccessTokenFromLocalStorage } from "../utils/accessTokenHandler";
 
 
 const LogContainer = styled.div`
@@ -51,6 +52,7 @@ const User = styled.div`
 `;
 
 const LocalLogin = () => {
+  const [accessToken, SetToken] = useState<string | null>(null);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const setisLogin = useSetRecoilState(isLogined);
   const toggleDarkAtom = () => setisLogin((prev) => {
@@ -74,6 +76,8 @@ const LocalLogin = () => {
     };
 
     const result = await login(loginPayload);
+    const localToken = getAccessTokenFromLocalStorage();
+    SetToken(localToken)
     if (result === "fail") return alert("로그인 실패하셨습니다");
     const userInfo = await getCurrentUserInfo();
     setUserInfo(userInfo);
@@ -110,7 +114,8 @@ const LocalLogin = () => {
           </Button>
         </Form>
         <UserInfoBox>
-
+        <h2>Saved User token in localStorage</h2>
+          <User style={{marginBottom:"10px"}}>{JSON.stringify(accessToken)}</User>
           <h2>User info</h2>
           <User>{JSON.stringify(userInfo)}</User>
         </UserInfoBox>
