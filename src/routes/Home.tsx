@@ -32,7 +32,8 @@ function Home() {
         <MainContainer>
           {PageId ? <Outlet /> : <Ment>"Welcome Login Study" <br />
           로그인 , Jwt로그인 , Jwt&LocalStorage <br />
-          다양한 로그인을 경험해보세요!
+          다양한 로그인을 경험해보세요!<br /><br />
+          환영멘트를 변경하시려면 Login - localstorage login에서 로그인해주세요😊
           </Ment>}
         </MainContainer>
       </ParentBody>

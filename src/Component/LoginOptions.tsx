@@ -10,6 +10,15 @@ const Option = styled.div`
     margin : 20px;
 `
 
+const HomeOption = styled.div`
+    position: fixed;
+  top: 20px;
+  /* width: 100% */
+ font-size : 25px;
+  right: 20px;
+
+`
+
 
 function LoginOptions () {
 
@@ -21,6 +30,8 @@ function LoginOptions () {
         Jwtlogin</Link></Option>
         <Option><Link to={{pathname : `/localLogin`}}>
         localstorage login</Link></Option>
+        <HomeOption><Link to={{pathname : `/`}}>
+        Home</Link></HomeOption>
     </OptionsContainer>
     </>
 }
