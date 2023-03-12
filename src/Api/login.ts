@@ -62,6 +62,17 @@ export const loginWithToken = async (
   //     console.log(Error);
   //   });
 
+  // if (loginRes) {
+  //   return {
+  //     result: "success",
+  //     access_token: loginRes.access_token,
+  //   };
+  // }
+  // return {
+  //   result: "fail",
+  //   access_token: null,
+  // };
+
   if (args.username === "woony" && args.password === "1234") {
     return {
       result: "success",
@@ -92,6 +103,12 @@ export const getCurrentUserInfoWithToken = async (
   //     console.log(Error);
   //   });
 
+  // if (userInfo) {
+  //   return userInfo;
+  // } else {
+  //   return null;
+  // }
+
   if (token === _secret) {
     return {
       name: "정찬우",
@@ -121,7 +138,6 @@ export const login = async (args: LoginRequest): Promise<LoginResult> => {
   //   });
 
   // if (loginRes) return "success";
-
   // return "fail";
 
   if (args.username === "woony" && args.password === "1234") {
@@ -149,7 +165,6 @@ export const getCurrentUserInfo = async (): Promise<UserInfo | null> => {
   //   });
 
   // if (userInfo) return userInfo;
-
   // return null;
 
   if (localToken === _secret) {

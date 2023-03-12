@@ -1,7 +1,7 @@
 # JWT & LocalStorage 를 이용한 Auto Login 구현
-다양한 로그인 을 구현해본 웹 (Mocking)<br/>
-Nav바를 통해 페이지 전환을 하는 웹 <br/>
-Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직을 어떻게 설계해야할까? 에 대한 답
+- 다양한 로그인 을 구현해본 웹 (Mocking API & Axios)<br/>
+- Nav바를 통해 페이지 전환을 하는 웹 <br/>
+- Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직을 어떻게 설계해야할까? 에 대한 답
 
 배포링크 보러가기 🔍
 <h3>https://chanwoo-jeong.github.io/wantedLogin</h3>
@@ -28,7 +28,7 @@ Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직�
   <img style="margin-top:10px;" src="./src/assets/images/main.png" >
 - login에는 일반로그인 , JWT로그인 , JWT & localStorage Login 3가지 옵션이 있다.
 - localStorage login을 하면 로그인 정보가 저장되며 NeedLogin 페이지에 접근가능하다.
-- Logout을 누르면 localStorage에 저장됐던 정보가 삭제되며 로그아웃 , 페이제접근 불가하다.
+- Logout을 누르면 localStorage에 저장됐던 정보가 삭제되며 로그아웃 , 페이제접근 불가능하다.
   <img style="margin-top:10px;" src="./src/assets/images/Memory.png" >
   <img src="./src/assets/images/JWT.png">
   <img src="./src/assets/images/local.png">
@@ -63,6 +63,35 @@ Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직�
         Auth: true // 로그인 필요함 => true
     }
     ];
+  ```
+- Promise async , await 를 통해 로그인 정보를 비동기적으로 불러올 수 있다.
+  ```javascript
+    export const loginWithToken = async (
+  args: LoginRequest
+    ): Promise<LoginResultWithToken> => {
+        APi 이용할때
+        const loginRes = await axios
+        .post(`${BASE_URL}/auth/login`, {
+            username: args.username,
+            password: args.password,
+        })
+        .then((Response) => {
+            return Response.data.access_token;
+        })
+        .catch((Error) => {
+            console.log(Error);
+        }) 
+        if (loginRes) {
+        return {
+            result: "success",
+            access_token: loginRes.access_token,
+        };
+        }
+        return {
+        result: "fail",
+        access_token: null,
+        };
+    }
   ```
 - 로그인을 하게되면 Recoil을 통해 로그인 여부를 전역으로 관리할 수 있게 되었다. <br/>또한 로그인이 해제되면 NeedLogin 페이지의 접근을 Recoil을 통해 즉각 통제한다.
   ```javascript
