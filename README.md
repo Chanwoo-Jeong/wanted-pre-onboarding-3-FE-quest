@@ -29,6 +29,11 @@ Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직�
 - login에는 일반로그인 , JWT로그인 , JWT & localStorage Login 3가지 옵션이 있다.
 - localStorage login을 하면 로그인 정보가 저장되며 NeedLogin 페이지에 접근가능하다.
 - Logout을 누르면 localStorage에 저장됐던 정보가 삭제되며 로그아웃 , 페이제접근 불가하다.
+  <img style="margin-top:10px;" src="./src/assets/images/Memory.png" >
+  <img src="./src/assets/images/JWT.png">
+  <img src="./src/assets/images/local.png">
+  <img src="./src/assets/images/logined.png">
+  <img src="./src/assets/images/Logout.png">
 
 ### `성장한점`
 - Router v6 Outlet 을 이용해 페이지 전환시 전체 Layout 재랜더링이 아닌 내부 Page만 재랜더링할 수 있다.
