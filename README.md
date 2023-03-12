@@ -1,5 +1,5 @@
 # JWT & LocalStorage 를 이용한 Auto Login 구현
-
+다양한 로그인 을 구현해본 웹 (Mocking)<br/>
 Nav바를 통해 페이지 전환을 하는 웹 <br/>
 Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직을 어떻게 설계해야할까? 에 대한 답
 
@@ -23,9 +23,10 @@ Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직�
 
 ### `기능설명`
 - 왼쪽 Nav 바를 통해 page를 이동할 수 있다.
+  <img src="./src/assets/images/main.png" >
 - Nav 바 중 NeedLogin은 Login해야만 접근할 수 있다.
 - ""님 환영합니다 는 localStorage login을 하면 바뀐다.
-- login에는 일반로그인 JWT로그인 JWT & localStorage Login 3가지 옵션이 있다.
+- login에는 일반로그인 , JWT로그인 , JWT & localStorage Login 3가지 옵션이 있다.
 - localStorage login을 하면 로그인 정보가 저장되며 NeedLogin 페이지에 접근가능하다.
 - Logout을 누르면 localStorage에 저장됐던 정보가 삭제되며 로그아웃 , 페이제접근 불가하다.
 
