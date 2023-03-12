@@ -41,9 +41,8 @@ const UserInfoBox = styled.div``;
 
 const User = styled.div`
   font-size: 20px;
-  margin-top : 10px;
+  margin-top: 10px;
 `;
-
 
 function LoginLow() {
   const [id, setId] = useState("");
@@ -59,7 +58,7 @@ function LoginLow() {
     const result: UserInfo = loginLow({ id, passWord });
 
     if (result.name !== "fail") {
-      setUserInfo(result)
+      setUserInfo(result);
     } else {
       alert(`로그인에 실패하였습니다.`);
     }
@@ -70,20 +69,24 @@ function LoginLow() {
       <LoginOptions />
       <LogContainer>
         <Title>Login in Memory</Title>
-        <Explain>
-          UserName과 Password가 Userinfo를 받아옵니다.
-        </Explain>
+        <Explain>UserName과 Password가 Userinfo를 받아옵니다.</Explain>
         <Form onSubmit={submitForm}>
-          <InputTag
-            value={id}
-            placeholder="UserName (Hint : woony)"
-            onChange={(e) => setId(e.currentTarget.value)}
-          />
-          <InputTag
-            value={passWord}
-            placeholder="PassWord (Hint : 1234)"
-            onChange={(e) => setPassWord(e.currentTarget.value)}
-          />
+          <label>
+            Username:
+            <InputTag
+              value={id}
+              placeholder="Hint : woony"
+              onChange={(e) => setId(e.currentTarget.value)}
+            />
+          </label>
+          <label>
+            Password:
+            <InputTag
+              value={passWord}
+              placeholder="Hint : 1234"
+              onChange={(e) => setPassWord(e.currentTarget.value)}
+            />
+          </label>
           <Button type="submit">로그인하기</Button>
         </Form>
         <UserInfoBox>

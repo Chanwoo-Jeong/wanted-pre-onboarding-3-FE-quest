@@ -16,6 +16,11 @@ const MainContainer = styled.div`
   justify-content: center;
   
 `;
+const Ment = styled.div`
+  text-align : center;
+  line-height : 25px;
+
+`
 
 function Home() {
   const { PageId } = useParams();
@@ -25,7 +30,10 @@ function Home() {
       <ParentBody>
         <SideNav />
         <MainContainer>
-          {PageId ? <Outlet /> : "Welcome pre-onboarding"}
+          {PageId ? <Outlet /> : <Ment>"Welcome Login Study" <br />
+          로그인 , Jwt로그인 , Jwt&LocalStorage <br />
+          다양한 로그인을 경험해보세요!
+          </Ment>}
         </MainContainer>
       </ParentBody>
     </>

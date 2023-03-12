@@ -7,6 +7,7 @@ display:flex;
 `
 const Option = styled.div`
     margin-right : 5px;
+    margin : 20px;
 `
 
 

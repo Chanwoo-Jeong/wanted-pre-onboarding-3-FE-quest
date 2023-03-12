@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { DeleteAccessTokenFormLocalStorage } from "../utils/accessTokenHandler";
 import { useSetRecoilState } from "recoil";
 import { isLogined } from "../Recoil/atoms";
+import { useRecoilValue } from "recoil";
 
 const TopNavigationBar = styled.h1`
   font-size: 20px;
@@ -43,6 +44,7 @@ font-size:13px;
 function Header() {
   const [user, setUserInfo] = useState<UserInfo | null>(null)
   const isDataFetched = useRef(false)
+  const islogin = useRecoilValue(isLogined);
   const setisLogin = useSetRecoilState(isLogined);
   const toggleDarkAtom = () => setisLogin((prev) => {
     if(prev === true) return false
@@ -75,7 +77,7 @@ function Header() {
           <WelcomeBox>{user?.name}님 환영합니다.</WelcomeBox>
           <Link to={{ pathname: `/` }}>Home</Link>
           <Link to={{ pathname: `/login` }}>Login</Link>
-          <Span onClick={removeToken} >LogOut</Span>
+          {islogin ? <Span onClick={removeToken} >LogOut</Span> :null}
         </div>
       </TopNavigationBar>
     </>
