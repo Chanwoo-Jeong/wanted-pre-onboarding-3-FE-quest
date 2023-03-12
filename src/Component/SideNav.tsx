@@ -23,19 +23,23 @@ const NavPart = [
   {
     part: "PageA",
     pathname: `/PageA`,
-    Auth: false,
+    Auth: false
   },
   {
     part: "PageB",
     pathname: `/PageB`,
-    Auth: false,
+    Auth: false
   },
   {
     part: "PageC",
     pathname: `/PageC`,
-    Auth: false,
+    Auth: false
   },
-  { part: "NeedLogin", pathname: `/needLogin`, Auth: true },
+  { 
+    part: "NeedLogin", 
+    pathname: `/needLogin`, 
+    Auth: true
+  }
 ];
 
 function SideNav() {
