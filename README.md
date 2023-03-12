@@ -23,7 +23,7 @@ Nav바 중 NeedLogin은 로그인이 되었을때만 접근가능한데 로직�
 
 ### `기능설명`
 - 왼쪽 Nav 바를 통해 page를 이동할 수 있다.
-  <img style="margin-top:5px" src="./src/assets/images/main.png" >
+  <img style="margin-top:10px;" src="./src/assets/images/main.png" >
 - Nav 바 중 NeedLogin은 Login해야만 접근할 수 있다.
 - ""님 환영합니다 는 localStorage login을 하면 바뀐다.
 - login에는 일반로그인 , JWT로그인 , JWT & localStorage Login 3가지 옵션이 있다.
