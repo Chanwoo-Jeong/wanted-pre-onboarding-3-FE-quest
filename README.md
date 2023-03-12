@@ -22,13 +22,13 @@
 - Jwt , LocalStorage
 
 ### `기능설명`
-- 왼쪽 Nav 바를 통해 page를 이동할 수 있다. 
-- Nav 바 중 NeedLogin은 Login해야만 접근할 수 있다.
-- ""님 환영합니다 는 localStorage login을 하면 바뀐다.
+- 왼쪽 Nav 바를 통해 page를 이동할 수 있다. <br/>
+- Nav 바 중 NeedLogin은 Login해야만 접근할 수 있다.<br/>
+- ""님 환영합니다 는 localStorage login을 하면 바뀐다.<br/>
   <img style="margin-top:10px;" src="./src/assets/images/main.png" >
-- login에는 일반로그인 , JWT로그인 , JWT & localStorage Login 3가지 옵션이 있다.
-- localStorage login을 하면 로그인 정보가 저장되며 NeedLogin 페이지에 접근가능하다.
-- Logout을 누르면 localStorage에 저장됐던 정보가 삭제되며 로그아웃 , 페이제접근 불가능하다.
+- login에는 일반로그인 , JWT로그인 , JWT & localStorage Login 3가지 옵션이 있다.<br/>
+- localStorage login을 하면 로그인 정보가 저장되며 NeedLogin 페이지에 접근가능하다.<br/>
+- Logout을 누르면 localStorage에 저장됐던 정보가 삭제되며 로그아웃 , 페이제접근 불가능하다.<br/>
   <img style="margin-top:10px;" src="./src/assets/images/Memory.png" >
   <img src="./src/assets/images/JWT.png">
   <img src="./src/assets/images/local.png">
@@ -36,7 +36,7 @@
   <img src="./src/assets/images/Logout.png">
 
 ### `성장한점`
-- Router v6 Outlet 을 이용해 페이지 전환시 전체 Layout 재랜더링이 아닌 내부 Page만 재랜더링할 수 있다.
+- Router v6 Outlet 을 이용해 페이지 전환시 전체 Layout 재랜더링이 아닌 내부 Page만 재랜더링할 수 있다. <br/>
 - Jwt , refresh_Token , access_Token , LocalStorage에 대한 개념을 이해했다. <br/>
 - page별 접근가능 권한을 Nav바 Auth를 통해 저장했다. <br />이에 따라 Nav바 확장성과 Auth를 통해 로그인이 필요한 페이지의 접근을 제어할 수 있게 되었다.
 
@@ -116,4 +116,19 @@
     return localStorage.removeItem('accessToken')
     }
   ```
+
+  ### `트러블슈팅 & 깨달은점`
+  - 지금까지 인강에서 배울때는 input & useState & onChange 조합으로 회원가입을 구현했다. <br/>
+  - 그러나 이렇게 되면 onChange를 할때마다 재랜더링이 일어나 비효율이 생기지 않을까? 라는 의문이 들었다.<br/>
+  - 찾아보니 그래서 formData를 이용한다고 했다. 이것을 이용하면 재랜더링 없이 input value 값을 받고 보낼 수 있다.<br/>
+  ```javascript
+  const formData = new FormData(event.currentTarget);
+
+    const loginPayload = {
+      username: formData.get("username") as string, // blue
+      password: formData.get("password") as string, // 1234!@#$  
+    };
+
+    const loginResult = await loginWithToken(loginPayload);
+```
 
