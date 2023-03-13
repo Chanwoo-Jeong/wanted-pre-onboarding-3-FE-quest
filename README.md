@@ -118,9 +118,9 @@
     }
   ```
 
-  ## `트러블슈팅 & 깨달은점`
+  ## 📌트러블슈팅 & 깨달은점
 
-  ## `FormData 란 ??`
+  ### `FormData 란 ??`
   - 지금까지 인강에서 배울때는 input & useState & onChange 조합으로 회원가입을 구현했다. <br/>
   - 그러나 이렇게 되면 onChange를 할때마다 재랜더링이 일어나 비효율이 생기지 않을까? 라는 의문이 들었다.<br/>
   - 찾아보니 그래서 formData를 이용한다고 했다. 이것을 이용하면 재랜더링 없이 input value 값을 받고 보낼 수 있다.<br/>
@@ -135,7 +135,7 @@
     const loginResult = await loginWithToken(loginPayload);
   ```
 
-## `useCallback 이란 ??`
+### `useCallback 이란 ??`
   - 컴포넌트가 랜더링 되면 컴포넌트 안 선언되어있는 함수들도 재선언이 된다.
   - 그러나 이럴필요가 있을까? 어차피 함수는 변하지 않을거고 한번 선언된 함수를 재사용하고 싶다.
   - 그럴땐 useCallback을 통해 함수를 넣어두면 컴포넌트가 재랜더링되도 함수는 재랜더링되지 않는다!
