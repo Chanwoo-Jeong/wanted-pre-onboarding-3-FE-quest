@@ -52,10 +52,8 @@ function Header() {
   });
 
   const getUserInfo = useCallback (async () => {
-
     const userInfo = await getCurrentUserInfo()
     setUserInfo(userInfo)
-
     isDataFetched.current = true
   }, [])
 
